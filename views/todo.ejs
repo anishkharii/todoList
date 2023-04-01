@@ -1,0 +1,26 @@
+<%- include("header") -%>
+<div id="heading">
+    <h1><%=listType%></h1>
+</div>
+
+<div class="box">
+    <div class="all-items">
+    <%newItem.forEach((i)=> {%>
+        <form method="post" action="/delete">
+            <div class="item">
+                <input type="checkbox">
+                <p><%= i.item %></p>
+                <button class="delete-btn" name="btn" value="<%=i._id%>" type="submit">X</button>
+            </div>
+            <input type="hidden" name="deleteItem" value="<%=listType%>"></input>
+        </form>
+
+        <% })%>
+    </div>
+    <form class="add-item" method="post" action="/">
+        <input type="text" name="item" placeholder="Enter Item" autocomplete="off" autofocus="true">
+        <button class="submit-btn" type="submit" name="list" value="<%=listType%>">+</button>
+    </form>
+</div>
+
+        <%- include("footer") -%>
