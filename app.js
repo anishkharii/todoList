@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("public"));
 
-const url = "mongodb+srv://user001:test123@cluster0.dpqjq5z.mongodb.net/todoListDB";
+const url = process.env.MONGO_DB;
 //async function main() {
 mongoose.connect(url, {
     useNewUrlParser: true,
