@@ -26,15 +26,6 @@ const todoSchema = new mongoose.Schema({
 
 const Item = mongoose.model("Item", todoSchema);
 
-/*const item1 = new Item({
-    item: "Welcome to our To-do List!"
-});
-const item2 = new Item({
-    item: "Press + button to start writing! "
-});
-const defaultItems = [item1,
-    item2];
-*/
 const listSchema = new mongoose.Schema({
     name: String,
     items: [todoSchema]
@@ -70,11 +61,7 @@ app.get("/:customList", (req, res)=> {
                 }
             }
         })
-    /* const list1 = new List({
-        name:customList,
-        items:defaultItems
-    });
-    list1.save();*/
+    
 
 });
 app.post("/", (req, res)=> {
